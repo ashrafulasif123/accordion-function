@@ -1,0 +1,1 @@
+accordion('divtarget', 'plustarget', 'minustarget')
