@@ -1,4 +1,5 @@
 function accordion(divTarget, plusTarget, minusTarget){
+    // data-* attribute দিয়ে ধরেছি
     const accordionButtons = document.querySelectorAll(`[data-${divTarget}]`)
     accordionButtons.forEach(accordionButton =>{
         accordionButton.addEventListener('click', function(){

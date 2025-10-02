@@ -1,0 +1,32 @@
+accordion('accordion-parent', 'accordion-button')
+
+function accordion(accordionParent, btns) {
+    document.getElementById(accordionParent).addEventListener('click', function (event) {
+
+        if (event.target.tagName === 'BUTTON') {
+            const targetButton = event.target.closest('button')
+            if (!targetButton) return
+            const targetId = targetButton.dataset.divtarget
+            const targetPlusIcon = targetButton.dataset.plustarget
+            const targetMinusIcon = targetButton.dataset.minustarget
+            const buttons = document.querySelectorAll(`.${btns}`)
+            buttons.forEach(button => {
+                if (button !== targetButton) {
+                    button.classList.remove('bg-slate-200')
+                    document.getElementById(button.dataset.divtarget).classList.add('!hidden')
+                    document.getElementById(button.dataset.plustarget).classList.remove('!hidden')
+                    document.getElementById(button.dataset.minustarget).classList.add('!hidden')
+                }
+            })
+            targetButton.classList.toggle('bg-slate-200')
+            document.getElementById(targetId).classList.toggle('!hidden')
+            document.getElementById(targetPlusIcon).classList.toggle('!hidden')
+            document.getElementById(targetMinusIcon).classList.toggle('!hidden')
+        }
+
+    })
+}
+
+function goAnotherPage(page) {
+    window.open(`${page}.html`, '_blank')
+}
